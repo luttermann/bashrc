@@ -55,6 +55,10 @@ for bc in ~/local/bash_completion/bash_completion.d/*; do
   source "$bc"
 done
 
+# Case insensitive tab-completion
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 # Prompt
 function __prompt_cmd
 {
