@@ -80,6 +80,9 @@ HISTTIMEFORMAT='%F %T: '
 shopt -s histappend
 shopt -s cmdhist
 
+# Enable extended globs
+shopt -s extglob
+
 # Prompt
 function __prompt_cmd
 {
