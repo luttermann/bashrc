@@ -94,7 +94,13 @@ function __prompt_cmd
     PS1+="${green}*${normal}"
   fi
 
+  # Python virtualenv
+  if [ -n "$VIRTUAL_ENV" ]; then
+    PS1+="[${VIRTUAL_ENV##*/}]"
+  fi
+
   # Arrow
   PS1+=" λ "
 }
 PROMPT_COMMAND=__prompt_cmd
+export VIRTUAL_ENV_DISABLE_PROMPT=1
