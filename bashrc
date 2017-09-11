@@ -14,7 +14,7 @@ fi
 # Use gpg-agent for ssh
 test -f ~/.gpg-agent-info && . ~/.gpg-agent-info
 
-# Colorize commands
+# Colourise commands
 if command grc &>/dev/null; then
   alias grc="grc -es --colour=auto"
   alias df='grc df'
