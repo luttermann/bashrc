@@ -73,6 +73,13 @@ bind "set horizontal-scroll-mode on"
 # Allow completion in the middle of words
 bind "set skip-completed-text on"
 
+# Setup bash history
+HISTCONTROL=ignoreboth
+HISTSIZE=-1
+HISTTIMEFORMAT='%F %T: '
+shopt -s histappend
+shopt -s cmdhist
+
 # Prompt
 function __prompt_cmd
 {
