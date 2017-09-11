@@ -83,6 +83,9 @@ shopt -s cmdhist
 # Enable extended globs
 shopt -s extglob
 
+# List running background jobs before exiting
+shopt -s checkjobs
+
 # Prompt
 function __prompt_cmd
 {
