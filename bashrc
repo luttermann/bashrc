@@ -48,7 +48,7 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH=$(printf "%s:" ~/local/*/bin):$PATH
 
 # Allow changing into some dirs directly
-export CDPATH=.:~/Projects
+CDPATH=.:~/Projects
 
 # Load local bash-completions
 for bc in ~/local/bash_completion/bash_completion.d/*; do
