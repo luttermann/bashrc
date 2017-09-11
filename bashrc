@@ -1,11 +1,6 @@
 # Enable bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-# Setup rvm
-if [ -f ~/.rvm/scripts/rvm ]; then
-  source ~/.rvm/scripts/rvm
-fi
-
 # Use the trash can
 if command /usr/local/bin/trash &>/dev/null; then
   alias rm=/usr/local/bin/trash
@@ -98,6 +93,12 @@ shopt -s dotglob
 # expand ** and **/
 shopt -s globstar
 
+# Setup rvm
+if [ -s ~/.rvm/scripts/rvm ]; then
+  source ~/.rvm/scripts/rvm
+  source ~/.rvm/scripts/completion
+fi
+
 # Prompt
 function __prompt_cmd
 {
@@ -138,6 +139,11 @@ function __prompt_cmd
     PS1+="[${VIRTUAL_ENV##*/}]"
   fi
 
+  # RVM
+  if [ -n "$(rvm-prompt g)" ]; then
+    PS1+="[$(rvm-prompt)]"
+  fi
+
   # Arrow
   PS1+=" λ "
 
@@ -151,3 +157,4 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 printf '\033[0;35m'
 fortune -e -s
 printf '\033[0m'
+
