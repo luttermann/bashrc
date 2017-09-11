@@ -67,6 +67,9 @@ bind "set colored-completion-prefix on"
 bind "set colored-stats on"
 bind "set visible-stats on"
 
+# Don't wrap commandline
+bind "set horizontal-scroll-mode on"
+
 # Prompt
 function __prompt_cmd
 {
@@ -109,6 +112,9 @@ function __prompt_cmd
 
   # Arrow
   PS1+=" λ "
+
+  # Save history continuously
+  history -a
 }
 PROMPT_COMMAND=__prompt_cmd
 # Don't have python virtual environment set prompt
