@@ -70,6 +70,9 @@ bind "set visible-stats on"
 # Don't wrap commandline
 bind "set horizontal-scroll-mode on"
 
+# Allow completion in the middle of words
+bind "set skip-completed-text on"
+
 # Prompt
 function __prompt_cmd
 {
