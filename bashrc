@@ -73,6 +73,12 @@ bind "set horizontal-scroll-mode on"
 # Allow completion in the middle of words
 bind "set skip-completed-text on"
 
+# vi mode
+# set -o vi
+# bind "set show-mode-in-prompt on"
+# bind "set vi-ins-mode-string"
+# bind "set vi-cmd-mode-string +"
+
 # Setup bash history
 HISTCONTROL=ignoreboth
 HISTSIZE=-1
