@@ -86,6 +86,12 @@ shopt -s extglob
 # List running background jobs before exiting
 shopt -s checkjobs
 
+# Show dot-files when tab completing
+shopt -s dotglob
+
+# expand ** and **/
+shopt -s globstar
+
 # Prompt
 function __prompt_cmd
 {
