@@ -59,6 +59,9 @@ done
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
 
+# Show mathing parenthesis
+bind "set blink-matching-paren on"
+
 # Prompt
 function __prompt_cmd
 {
