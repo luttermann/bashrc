@@ -95,7 +95,7 @@ shopt -s globstar
 # Prompt
 function __prompt_cmd
 {
-  local EXIT=$?
+  local exit_status=$?
   local blue="\[\e[34m\]"
   local red="\[\e[31m\]"
   local green="\[\e[32m\]"
@@ -103,7 +103,7 @@ function __prompt_cmd
   PS1=""
 
   # exit status
-  if [ $EXIT != 0 ]; then
+  if [ $exit_status != 0 ]; then
     PS1+=$red
   else
     PS1+=$blue
