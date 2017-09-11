@@ -75,7 +75,7 @@ function __prompt_cmd
   else
     PS1+=$blue
   fi
-  PS1+="⟩ "
+  PS1+="⟩"
 
   # directory
   PS1+="$blue\W$normal"
