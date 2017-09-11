@@ -62,6 +62,11 @@ bind "set show-all-if-ambiguous on"
 # Show mathing parenthesis
 bind "set blink-matching-paren on"
 
+# Add some colour
+bind "set colored-completion-prefix on"
+bind "set colored-stats on"
+bind "set visible-stats on"
+
 # Prompt
 function __prompt_cmd
 {
