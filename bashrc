@@ -141,3 +141,7 @@ function __prompt_cmd
 PROMPT_COMMAND=__prompt_cmd
 # Don't have python virtual environment set prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+printf '\033[0;35m'
+fortune -e -s
+printf '\033[0m'
