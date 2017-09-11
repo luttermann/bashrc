@@ -103,4 +103,5 @@ function __prompt_cmd
   PS1+=" λ "
 }
 PROMPT_COMMAND=__prompt_cmd
+# Don't have python virtual environment set prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
