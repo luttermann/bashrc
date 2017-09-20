@@ -1,6 +1,10 @@
 # Enable bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# Set commandline editor to vim
+# C-x C-e
+export VISUAL=vim
+
 # Use the trash can
 if command /usr/local/bin/trash &>/dev/null; then
   alias rm=/usr/local/bin/trash
