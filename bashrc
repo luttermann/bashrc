@@ -40,6 +40,9 @@ if command grc &>/dev/null; then
 fi
 alias ls="ls -G"
 
+# Put brew sbin into PATH
+export PATH="/usr/local/sbin:$PATH"
+
 # Make gettext availiable from brew
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
@@ -71,6 +74,10 @@ bind "set horizontal-scroll-mode on"
 
 # Allow completion in the middle of words
 bind "set skip-completed-text on"
+
+# Search using command line up up and down arrow
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 # vi mode
 # set -o vi
