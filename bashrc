@@ -53,9 +53,11 @@ export PATH=$(printf "%s:" ~/local/*/bin):$PATH
 CDPATH=.:~/Projects
 
 # Load local bash-completions
-for bc in ~/local/bash_completion/bash_completion.d/*; do
-  source "$bc"
-done
+if [ -d ~/local/bash_completion/bash_completion.d/ ]; then
+  for bc in ~/local/bash_completion/bash_completion.d/*; do
+    source "$bc"
+  done
+fi
 
 # Case insensitive tab-completion
 bind "set completion-ignore-case on"
@@ -155,8 +157,10 @@ function __prompt_cmd
   fi
 
   # RVM
-  if [ -n "$(rvm-prompt g)" ]; then
-    PS1+="[$(rvm-prompt)]"
+  if command rvm-prompt &> /dev/null; then
+    if [ -n "$(rvm-prompt g)" ]; then
+      PS1+="[$(rvm-prompt)]"
+    fi
   fi
 
   # Arrow
@@ -169,7 +173,9 @@ PROMPT_COMMAND=__prompt_cmd
 # Don't have python virtual environment set prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-printf '\033[0;35m'
-fortune -e -s
-printf '\033[0m'
+if command fortune &> /dev/null; then
+  printf '\033[0;35m'
+  fortune -e -s
+  printf '\033[0m'
+fi
 
