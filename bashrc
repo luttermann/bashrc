@@ -120,22 +120,14 @@ fi
 function __prompt_cmd
 {
   local exit_status=$?
-  local blue="\[\e[34m\]"
-  local red="\[\e[31m\]"
-  local green="\[\e[32m\]"
-  local normal="\[\e[m\]"
+  local blue="\\[\\e[34m\\]"
+  local red="\\[\\e[31m\\]"
+  local green="\\[\\e[32m\\]"
+  local yellow="\\[\\e[33m\\]"
+  local normal="\\[\\e[m\\]"
   PS1=""
 
-  # exit status
-  if [ $exit_status != 0 ]; then
-    PS1+=$red
-  else
-    PS1+=$blue
-  fi
-  PS1+="⟩"
-
-  # directory
-  PS1+="$blue\W$normal"
+  PS1+="[$yellow\D{%T}$normal] \\u@\\h$blue \\w$normal"
 
   # git based on https://github.com/jimeh/git-aware-prompt/
   local branch
@@ -163,8 +155,18 @@ function __prompt_cmd
     fi
   fi
 
+  PS1+="\\n"
+
+  # exit status
+  if [ $exit_status != 0 ]; then
+    PS1+=$red
+  else
+    PS1+=$blue
+  fi
+  PS1+="▹"
+
   # Arrow
-  PS1+=" λ "
+  PS1+="${normal} λ "
 
   # Save history continuously
   history -a
