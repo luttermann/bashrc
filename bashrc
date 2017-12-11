@@ -79,6 +79,10 @@ bind "set skip-completed-text on"
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
+# ctrl + arrow keys to move words
+bind '"\e[1;2C":forward-word'
+bind '"\e[1;2D":backward-word'
+
 # vi mode
 # set -o vi
 # bind "set show-mode-in-prompt on"
