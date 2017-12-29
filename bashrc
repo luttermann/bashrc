@@ -171,6 +171,9 @@ function __prompt_cmd
   # Save history continuously
   history -a
 }
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
 PROMPT_COMMAND=__prompt_cmd
 # Don't have python virtual environment set prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
