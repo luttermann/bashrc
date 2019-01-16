@@ -1,3 +1,22 @@
+export BASHRC_LOADED="TRUE"
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en
+export LC_CTYPE=UTF-8
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER="en_US.UTF-8"
+export LC_NAME="en_US.UTF-8"
+export LC_ADDRESS="en_US.UTF-8"
+export LC_TELEPHONE="en_US.UTF-8"
+export LC_MEASUREMENT="en_US.UTF-8"
+export LC_IDENTIFICATION="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # Enable bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
@@ -11,7 +30,9 @@ if command /usr/local/bin/trash &>/dev/null; then
 fi
 
 # Use gpg-agent for ssh
-test -f ~/.gpg-agent-info && . ~/.gpg-agent-info
+gpg-agent --daemon --enable-ssh-support > /dev/null 2> /dev/null
+SSH_AUTH_SOCK=/Users/llp/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK
 
 # Colourise commands
 if command grc &>/dev/null; then
@@ -127,7 +148,7 @@ function __prompt_cmd
   local normal="\\[\\e[m\\]"
   PS1=""
 
-  PS1+="[$yellow\D{%T}$normal] \\u@\\h$blue \\w$normal"
+  PS1+="[$yellow\D{%T}$normal] \\u@\\h$green \\w$normal"
 
   # git based on https://github.com/jimeh/git-aware-prompt/
   local branch
@@ -140,7 +161,7 @@ function __prompt_cmd
 
   local status=$(git status --porcelain 2> /dev/null)
   if [[ "$status" != "" ]]; then
-    PS1+="${green}*${normal}"
+    PS1+="${red}*${normal}"
   fi
 
   # Python virtualenv
@@ -161,12 +182,12 @@ function __prompt_cmd
   if [ $exit_status != 0 ]; then
     PS1+=$red
   else
-    PS1+=$blue
+    PS1+=$green
   fi
-  PS1+="▹"
+  PS1+="$exit_status"
 
   # Arrow
-  PS1+="${normal} λ "
+  PS1+=" => ${normal}"
 
   # Save history continuously
   history -a
@@ -183,4 +204,6 @@ if command fortune &> /dev/null; then
   fortune -e -s
   printf '\033[0m'
 fi
+
+export LSCOLORS=gxCxfxfxcxDxDxacacagag
 
